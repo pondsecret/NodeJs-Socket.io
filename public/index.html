@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Chat app</title>
+</head>
+<body>
+    <!-- <div class="head-container">
+        <ul></ul>
+    </div> -->
+    <!-- <div class="form-container">
+        <form id="form" action="">
+            <input id="input" class="text-input-box" type="text" autocomplete="off"><button>Send</button>
+        </form>
+    </div> -->
+    <div class="root">
+        <div class="inner-root">
+            <div class="err-box" id="err-container"></div>
+            <input class="input-name" id="name-input" type="text" name="name" value="" placeholder="Please enter your name">
+            <button class="join-btn" type="button" name="button" onclick="setUsername()">Join Chat</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        let socket = io();
+        let user;
+        // socket.on('broadcast',function(data){
+        //     document.body.innerHTML= '';
+        //     document.write(data.message);
+        // });
+        setUsername=()=>{
+            socket.emit('setUsername', document.getElementById('name-input').value)
+        };
+        socket.on('userExists', function(data){
+            document.getElementById('err-container').innerHTML = data;
+        });
+        socket.on('userSet', function(data){
+            user = data.username;
+            document.body.innerHTML = '<input class="input-msg" type="text" id="message" />\
+            <button type="button" name="button" onclick="sendMessage()">Send</button>\
+            <div id="message-container"></div>';
+        });
+        sendMessage=()=>{
+            let msg = document.getElementById('message').value;
+            if(msg) {
+                socket.emit('msg', {message: msg, user: user});
+            }
+        }
+        socket.on('newmsg', function(data){
+            if(user){
+                document.getElementById('message-container').innerHTML += `<div><b>${data.user}</b>: ${data.message}</div>`
+            }
+        })
+    </script>
+</body>
+</html>
