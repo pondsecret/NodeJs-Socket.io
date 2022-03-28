@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding-bottom: 3rem;
+}
+
+/* .form-container{
+    width: 100%;
+}
+
+.form-container form{
+    background-color: rgba(0,0,0,0.15);
+    padding: 0.25rem;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    height: 2.45rem;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    width: 100%;
+}
+
+.form-container button{
+    background-color: rgb(46, 71, 212);
+    border: none;
+    padding: 0 1rem;
+    margin: 0.1rem;
+    border-radius: 3px;
+    outline: none;
+    color: #fff;
+    transition: all 0.25s ease;
+}
+
+.form-container button:hover{
+    transform:  translate(-1px,-1px);
+    background-color: rgb(34, 127, 202);
+}
+.form-container button:hover::before{
+    transform:  translate(1px,1px);
+}
+
+.form-container button:hover::after{
+    transform:  translate(0.5px,0.5px);
+}
+
+
+
+
+.text-input-box {
+    border: none;
+    padding: 0 1rem;
+    flex-grow: 1;
+    border-radius: 0.25rem; 
+    margin: 0.1rem;
+}
+
+.text-input-box:focus{
+    outline: none;
+} */
+
+.root {
+    background-color: #fff;
+    width: 50vh;
+    height: 30vh;
+    border-radius: 20px;
+    margin: 2rem auto;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.inner-root {
+    background-color: transparent;
+    width: 40vh;
+    height: 25vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+.err-box {
+    color: red;
+    margin-bottom: 5px;
+}
+
+.input-name{
+    margin-bottom: 15px;
+   
+}
+
+.join-btn {
+    background-color: rgb(46, 71, 212);
+    border: none;
+    padding: .5rem 1rem;
+    margin: 0.1rem;
+    border-radius: 3px;
+    outline: none;
+    color: #fff;
+    transition: all 0.25s ease;
+}
+
+.join-btn:hover {
+    transform:  translate(-1px,-1px);
+    background-color: rgb(34, 127, 202);
+}
+
+.join-btn:hover::after{
+    transform:  translate(0.5px,0.5px);
+}
+.join-btn:hover::before{
+    transform:  translate(1px,1px);
+}
+
+.input-msg{
+    width: 90%;
+    display: flex;
+}
